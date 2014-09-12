@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+    <head>
+        <title>Weather</title>
+
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, target-densityDpi=120"/>
+        <link href="styles/att-sdk.css" rel="stylesheet" />
+        <link href="styles/vendor.css" rel="stylesheet" />
+        <link href="styles/sample-app.css" rel="stylesheet" />
+
+        <script src="scripts/angular.js"></script>
+        <script src="scripts/angular-route.js"></script>
+        <script src="scripts/connectedCarSDK-tpls-0.0.4.js"></script>
+    </head>
+
+    <body ng-app="app">
+
+        <div class="screen bg">
+            <div class="content">
+
+                <att-header app-name="appName" current-item="viewName" app-image="images/accuweather.png" ng-click="showDrawer = !showDrawer"></att-header>
+
+                <div ng-view=""></div>
+
+                <att-drawer>
+                    <att-menu title="title" items="appLinks"></att-menu>
+                </att-drawer> 
+
+            </div>
+        </div>
+
+        <script src="app/app.js"></script>
+
+        <script src="app/controllers/AboutCtrl.js"></script>
+        <script src="app/controllers/ForecastCtrl.js"></script>
+        <script src="app/controllers/SettingsCtrl.js"></script>
+
+    </body>
+
+</html>
