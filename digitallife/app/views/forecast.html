@@ -1,0 +1,76 @@
+<att-tabset>
+    <att-tab heading="Living Room">
+
+        <h1 class="main-title">Living Room</h1>
+        <h3 class="main-subtitle">{{currentDate | date: 'EEEE, MMMM dd'}}</h3>
+
+        <div class="column-large separate-top-70">
+            <div class="weather-info separate-bottom-10">
+                <img class="separate-right-10" src="images/icon-sun.png" />
+                <h1>{{weatherStats.currentTemp}}&deg;</h1>
+            </div>
+            <div class="progress-container">
+                <att-progress-bar type="info" max="100" value="weatherStats.chanceOfRain">NOW COOLING</att-progress-bar>
+            </div>
+        </div>
+        <div class="column-small text-right separate-top-70">
+            <div class="weather-stats">
+                <p>
+                    Fan: <span class="font-medium">{{weatherStats.precipitation}}</span><br>
+                    Humidity: <span class="font-medium">{{weatherStats.humidity}}%</span><br>
+                    Usage: <span class="font-medium success">{{weatherStats.wind}}</span>
+                </p>
+            </div>
+        </div>
+
+    </att-tab>
+    <att-tab heading="2nd Floor">
+
+        <h1 class="main-title">Second Floor</h1>
+        <h3 class="main-subtitle">Thermostat is OFF</h3>
+
+        <div class="column-large separate-top-70">
+            <div class="weather-info separate-bottom-10">
+                <img class="separate-right-10" src="images/icon-off.png" />
+                <h1>80&deg;</h1>
+            </div>
+            <div class="progress-container">
+                <att-progress-bar type="info" max="100" value="weatherStats.chanceOfRain">OFF</att-progress-bar>
+            </div>
+        </div>
+        <div class="column-small text-right separate-top-70">
+            <div class="weather-stats">
+                <p>
+                    Fan: <span class="font-medium">OFF</span><br>
+                    Humidity: <span class="font-medium">{{weatherStats.humidity}}%</span><br>
+                    Usage: <span class="font-medium success">OFF</span>
+                </p>
+            </div>
+        </div>
+
+    </att-tab>
+    <att-tab heading="Basement">
+
+        <h1 class="main-title">Basement</h1>
+        <h3 class="main-subtitle">Thermostat is OFF</h3>
+
+        <div class="column-large separate-top-70">
+            <div class="weather-info separate-bottom-10">
+                <img class="separate-right-10" src="images/icon-off.png" />
+                <h1>87&deg;</h1>
+            </div>
+            <div class="progress-container">
+                <att-progress-bar type="info" max="100" value="weatherStats.chanceOfRain">OFF</att-progress-bar>
+            </div>
+        </div>
+        <div class="column-small text-right separate-top-70">
+            <div class="weather-stats">
+                <p>
+                    Fan: <span class="font-medium">OFF</span><br>
+                    Humidity: <span class="font-medium">{{weatherStats.humidity}}%</span><br>
+                    Usage: <span class="font-medium success">OFF</span>
+                </p>
+            </div>
+        </div>
+    </att-tab>
+</att-tabset>
