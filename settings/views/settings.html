@@ -1,0 +1,26 @@
+<att-tabset>
+    <att-tab heading="App settings">
+        <div class="settings-container">
+    
+    <div class="settings-item" ng-repeat="app in vehicleApps">
+        <div class="icon"><img ng-src="{{config.API.host}}{{app.imageUrl}}" alt=""></div>
+        <div class="description">
+            <h3 ng-bind="app.name"></h3>
+            <p ng-bind="app.description"></p>
+        </div>
+        <div class="toggle"><att-toggle-switch ng-model="app.enabled" on-change="appStatusChanged(vehicle)"></att-toggle-switch></div>
+    </div>
+
+    
+</div>
+    </att-tab>
+    <att-tab heading="Service settings">
+        <div class="settings-container">
+            <div class="settings-item" ng-repeat="service in vehicleServices">
+                <h3 ng-bind="service.name"></h3>
+                <small ng-bind="service.description"></small>
+            <div class="toggle"><att-toggle-switch ng-model="service.enabled" on-change="serviceStatusChanged(vehicle)"></att-toggle-switch></div>
+        </div>
+    </div>
+    </att-tab>
+</att-tabs>

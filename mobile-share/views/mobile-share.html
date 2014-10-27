@@ -1,0 +1,284 @@
+﻿<div ng-show="step==1">
+    <form name="accountInfo" class="control-group" novalidate attform>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p class="lead"><span class="text-muted">Step 1:</span>&nbsp;Input your account information</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <label for="">Your mobile phone number</label>
+                    <input type="text" ng-model="accountInfoModel.phone" ng-required="true">
+                </div>
+                <div class="col-xs-6">
+                    <label for="">Billing ZIP Code</label><br>
+                    <input type="text" ng-model="accountInfoModel.zip" ng-required="true">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <label for="">AT&T Account PIN</label>
+                    <input type="text" max-length="6" ng-required="true" ng-model="accountInfoModel.pin">
+                </div>
+                <div class="col-xs-6">
+                    <label for="">Last 4 digits of your SSN</label>
+                    <input type="text" ng-number="" ng-required="true" max-length="4" ng-model="accountInfoModel.ssn">
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <a class="btn btn-default" style="width: 49%" ng-click="back()">Back</a>
+            <a ng-click="validateAccount()" class="btn btn-primary" style="width: 49%" ng-disabled="!accountInfo.$valid">Verify</a>
+        </div>
+    </form>
+</div>
+<div ng-show="step==2">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <p class="lead"><span class="text-muted">Step 2:</span>&nbsp;Select a data plan</p>
+            </div>
+        </div>
+    </div>
+    <div id="plans-carousel-container">            
+            <att-carousel ng-show="packages">   
+            <att-slide ng-repeat="packageSet in packages">
+                <div class="row">
+                    <div class="col-xs-4 mobile-share-plan-tile" ng-class="{'selected': package.id == activePackageId}" ng-repeat="package in packageSet">
+                        <span class="text-success small text-uppercase">{{package.id == currentPackageId ? 'Current' : 'Upgrade'}}</span>
+                        <p class="bucket-size">{{package.dataUsage.monthlyQuota}}{{package.dataUsage.unit}}</p> 
+                        <span class="text-muted">Mobile Share Value Plan</span>
+                        <p>
+                             <span class="price-main">${{package.price}}/mo</span><br>
+                             <span>+ $10/mo for this car</span>
+                        </p>
+                        <a ng-click="selectPlan(package)" class="btn btn-primary" ng-show="package.id != currentPackageId">Select</a>
+                    </div>
+                </div>
+            </att-slide>  
+        </att-carousel>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                    <small class="text-muted">
+                        <strong>You should know:</strong> Using Wi-Fi in the car with your current 10GB data plan may put you over the limit.
+                    </small class="text-muted">
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-show="step==3">
+    <div class="container">
+	    <div class="row">
+		    <div class="col-xs-12">
+			    <p class="lead"><span class="text-muted">Step 3:</span>&nbsp;Select a Mobile Share group for this vehicle</p>
+		    </div>
+	    </div>
+        <div class="row" ng-repeat="group in mobileShareGroups">
+		    <div class="col-xs-12">
+			    <input type="radio" id="r{{$index}}" ng-model="selectedGroup" ng-click="selectGroup(group.id)" value="{{group.id}}" name="radio"/>
+    		    <label for="r{{$index}}"><span></span>{{group.name}}</label>
+		    </div>
+	    </div>
+    </div>
+	<div class="footer">
+			<a ng-click="step=2" class="btn btn-default" style="width: 49%">Back</a>
+			<a  ng-disabled="!selectedGroup" ng-click="step=4" class="btn btn-primary" style="width: 49%">Continue</a>
+	</div>
+</div>
+<div ng-show="step==4">
+    <div class="container">
+	    <div class="row">
+		    <div class="col-xs-12">
+			    <p class="lead">Special offer</p>
+		    </div>
+
+	    </div>
+	    <div class="row">
+		    <div class="col-xs-8">
+			    <p class="text-justify">
+				    Sign up for a 2-year agreement with qualified data
+				    plan and receive a $100 bill credit on your AT&T bill.
+				    <br> <br>
+				    <span class="text-muted">
+					    Must be in good standing for 90 days. Bill credit
+					    received within 2 months. 
+					    <br>
+					    Early termination fee of up
+					    to $150 applies after 14-day cancellation period.
+				    </span>
+			    </p>
+		    </div>
+		    <div class="special-offer-image col-xs-4 text-center">
+			    <img src="images/special-offer.png" alt="">
+		    </div>
+	    </div>
+    </div>
+    <div class="footer">
+		    <a ng-click="specialOffer(false)" ng-show="!onlyDetails" class="btn btn-default" style="width: 49%">No, thanks</a>
+		    <a ng-click="specialOffer(true)" ng-show="!onlyDetails" class="btn btn-primary" style="width: 49%">Yes, I want the offer</a>
+            <a ng-show="onlyDetails" ng-click="step = 5; onlyDetails = !onlyDetails" class="btn btn-primary" style="width: 49%">OK</a>
+    </div>
+</div>
+<div ng-show="step==5">
+    <div class="container">
+	    <div class="row">
+		    <div class="col-xs-12">
+			    <h3><span class="text-muted">Final step:</span>&nbsp;Purchase summary</h3>
+		    </div>
+	    </div>
+	    <div class="summary-table">
+		    <table class="table">
+			    <thead>
+				    <tr>
+					    <th>
+						    <small>Your device</small>
+					    </th>
+					    <th>
+						    <small>Your data plan</small>
+					    </th>
+					    <th>
+						    <small>Due today</small>
+					    </th>
+					    <th>
+						    <small>Due monthly</small>
+					    </th>
+					    <th>
+						    <small>Added to 1st bill</small>
+					    </th>
+				    </tr>
+			    </thead>
+			    <tbody>
+				    <tr>
+					    <td>
+						
+					        <p class="lead" ng-bind="vehicle.make"></p>
+					        <small ng-bind="vehicle.year"></small>
+					    </td>
+					    <td>
+						    <p class="lead">
+					    	    {{selectedPlan.dataUsage.monthlyQuota}} {{selectedPlan.dataUsage.unit}}
+					        </p>
+					        <small>Mobile Share Value Plan</small><br>
+					    </td>
+					    <td>
+						    <p class="lead">
+					            $nn
+					        </p>
+					    </td>
+					    <td>
+					        <p class="lead">
+					            $nn
+					        </p>
+					    </td>
+					    <td>
+						    <p class="lead">
+					            $nn
+					        </p>
+					        <small>Activation fee waived</small>
+					    </td>
+				    </tr>
+			    </tbody>
+		    </table>
+	    </div>
+    </div>
+	<div style="padding: 0px 24px;">
+		<input type="checkbox" id="tc" name="radio" ng-model="checkbox" ng-click="acceptedTerms = !acceptedTerms"  />
+        <label for="tc"><span></span><small>I accept the <a ng-click="step=6">terms and conditions</a></small></label>
+	</div>
+	<div class="footer">
+			<a ng-click="step=3" class="btn btn-default" style="width: 49%">Back</a>
+			<a ng-disabled="!acceptedTerms" ng-click="purchase()" class="btn btn-success" style="width: 49%">Purchase</a>
+	</div>
+</div>
+<div ng-show="step==6">
+    <div class="container">
+	    <div class="row">
+		    <div class="col-xs-12">
+			    <h3 style="margin-top: 0; margin-bottom: 24px;">Terms and Conditions</h3>
+			
+		    </div>
+	    </div>
+	    <div class="row">
+		    <div class="col-xs-12 text-muted text-justify" style="height: 200px; overflow-y: scroll;">
+                <p>
+                    The AT&amp;T Intellectual Property (“IP”) website contains information on AT&amp;T IP potentially available for purchase or license.
+                    The information is presented for discussion purposes only and is not a legally binding offer to sell, to license,
+                    or otherwise to transfer rights in any of the IP referenced on the website. AT&amp;T is not obligated to enter into any contract
+                    with you and no agreement to sell, to license, or otherwise to transfer IP rights will exist until a written contract has been signed
+                    by both you and an authorized representative of AT&amp;T. AT&amp;T may reject any offer it receives to purchase or license IP
+                    in its sole discretion pursuant to applicable law. Should you and AT&amp;T engage in discussions concerning the possible sale or license
+                    of certain AT&amp;T IP, AT&amp;T may in its sole discretion pursuant to applicable law, at any time during such discussions
+                    (but prior to a written agreement signed by both you and AT&amp;T), decide not to license or to sell any IP to you and/or to others.
+                    Further, AT&amp;T may remove IP from the listings, add new IP, or otherwise modify the IP listed on the IP website at any time without any advance notice to you.
+                </p>
+                <p>
+                    The information presented on the AT&amp;T IP website does not include any legal advice concerning or related to the IP. The listings of any patents,
+                    technology (including software), trademarks, domain names, data and associated descriptions, if any, shall not be construed as any representation,
+                    warranty or opinion relating to the scope of IP rights associated with such listings nor shall such listings be considered as notice or accusation of
+                    infringement of the IP. Should you be interested in the possibility of acquiring rights to AT&amp;T IP, you should retain separate and independent legal
+                    counsel to advise and represent you in any negotiations or transactions concerning such possible acquisition.
+                </p>
+                <p>
+                    AT&amp;T makes no representations and extends no warranties to you of any kind (whether express or implied) relating to the IP listed,
+                    referenced or described on the AT&amp;T IP website, and all representations and warranties are hereby disclaimed, including the warranties of merchantability,
+                    fitness for a particular purpose, and non-infringement.
+                </p>
+		    </div>
+	    </div>
+    </div>
+	<div class="footer">
+			<a ng-click="step=5" class="btn btn-default" style="width: 100%">Close</a>
+	</div>
+</div>
+<div ng-show="step==7">
+    <div class="container">
+	    <div class="row" ng-show="purchaseSuccess">
+		    <div class="col-xs-12">
+			    <h3 style="margin-top: 0; margin-bottom: 24px;"><sub class="green">Purchase complete</sub><br>Thank you for purchasing Wi-Fi with AT&T Mobile Share.</h3>
+			
+		    </div>
+	    </div>
+	    <div class="row" ng-show="purchaseSuccess">
+		    <div class="col-xs-8">
+			    <p class="text-justify text-muted">
+				    Your car will be added to your existing Wireless account as
+				    “data-only” device labeled “label” in ‘bucket-name”.
+				    <br><br>
+				    To monitor your data usage or to manage this vehicle data
+				    consumption visit att.com/myatt
+				    <br>
+				    You can create users to take advantage of the amazing
+				    custom infotainment content we have made for you as part
+				    of your Wi-Fi subscription.
+			    </p>
+		    </div>
+		    <div class="col-xs-4 mobile-share-result-logo text-center">
+			    <img src="images/connected-by-att-dark.png" alt="">
+		    </div>
+	    </div>
+
+ 	    <div class="row" ng-show="!purchaseSuccess">
+		    <div class="col-xs-12">
+			    <h3 style="margin-top: 0; margin-bottom: 24px;"><sub class="red">Verification error</sub><br>We are unable to add your vehicle to AT&T Mobile Share.</h3>
+			
+		    </div>
+	    </div>
+	    <div class="row" ng-show="!purchaseSuccess">
+		    <div class="col-xs-12">
+			    <p class="text-justify text-muted">
+				    Please try again <br>
+				    If you dont have AT&T Mobile Share account, you can create
+				    it at att.com/myatt then add your vehicle there.
+			    </p>
+		    </div>
+	    </div> 
+
+    </div>
+
+	<div class="footer">
+			<a ng-click="completed()" class="btn btn-default" style="width: 100%">Close</a>
+	</div>
+</div>

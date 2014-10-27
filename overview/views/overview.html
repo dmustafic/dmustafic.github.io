@@ -1,0 +1,26 @@
+<div class="container" id="overview">
+    <att-alert ng-if="showTrialExpires" show-icon="true" title="TRIAL WILL EXPIRE SOON" type="info">
+        Your plan trial will expire on {{expirationDate}}.<br />
+        Tap here to purchase a retail plan to prevent service disruption.
+    </att-alert>
+    <att-alert ng-if="primaryDriver.billingInfo.accountBallanceTooLow" show-icon="true" title="ACCOUNT BALANCE IS TOO LOW" type="danger">
+        Once you reach your data plan limit, your service will stop until the next billing cycle.<br />
+        Tap here to purchase more data to prevent service disruption.
+    </att-alert>    
+    <div class="row">
+        <div class="car-details col-xs-12">
+            <h2 class="view-title">{{vehicle.make}} {{vehicle.model}}</h2>
+                <h4 class="view-subtitle">{{vehicle.activePackage.name}}</h4>
+        </div>
+    </div>
+    <div class="row" style="position: absolute; width: 100%; bottom: 30px;">
+        <div class="col-xs-5" ng-if="billingCycle">
+            <att-progress-bar max="billingCycle.max" min="billingCycle.min" value="billingCycle.value" 
+                text-left="billingCycle.textLeft" text-right="billingCycle.textRight" type="danger">danger</att-progress-bar>
+        </div>
+        <div class="col-xs-5" ng-if="dataUsage">
+            <att-progress-bar max="dataUsage.max" min="dataUsage.min" value="dataUsage.value" 
+                text-left="dataUsage.textLeft" text-right="dataUsage.textRight"></att-progress-bar>
+        </div>
+    </div>
+</div>

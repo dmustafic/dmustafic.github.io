@@ -1,0 +1,26 @@
+<div class="app-store">
+      <div class="container">
+        <h1 class="main-title">Applications</h1>
+        <h4 class="view-subtitle">Install or uninstall apps for your device.</h4>
+        
+    </div>
+    <div class="all-apps">
+       
+        <att-carousel ng-show="appGroups">
+            <att-slide ng-repeat="group in appGroups">
+                <div class="app-block">
+                    <a ng-repeat="app in group" ng-href="#/app/{{app.appId}}/details/{{vehicle.id}}">
+                        <div class="app-tile" ng-class="{'installed' : app.installed}">
+                            <span class="app-icon">
+                                <img ng-src="{{config.API.host}}{{app.imageUrl}}" alt="app logo" />
+                            </span>
+                            <span class="app-name">{{app.name}}</span>
+
+                        </div>
+                    </a>
+                </div>
+            </att-slide>
+        </att-carousel>
+
+    </div>
+</div>
