@@ -35,13 +35,13 @@ angular.module('driveStudioHU')
                 vehicleApp.installed = install;
                 vehicleService.updateVehicle($scope.vehicle, function (success) {
                     if (success) {
-                        $alert.success({ text: 'Operation completed', autoCloseInterval: 3000, showIcon: true });
+                        $alert.success({title: 'Success', text: 'Operation completed', autoCloseInterval: 3000, showIcon: true });
                         $location.path('/apps');
                     } else {
-                        $alert.danger({ text: 'Could not update app status', autoCloseInterval: 3000, showIcon: true });
+                        $alert.danger({title: 'Error', text: 'Could not update app status', autoCloseInterval: 3000, showIcon: true });
                     }
                 }, function () {
-                    $alert.danger({ text: 'Could not update app status', autoCloseInterval: 3000, showIcon: true });
+                    $alert.danger({title: 'Error', text: 'Could not update app status', autoCloseInterval: 3000, showIcon: true });
                 });
             };
 

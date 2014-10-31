@@ -1,29 +1,42 @@
-<div class="container">
-	<div class="row">
-		<div class="col-xs-12">
-	        <p class="lead" style="line-height: 1.2;">Select enrollment option <br><small class="text-muted">You can add this vehicle to your existing AT&ampT Mobile Share account, or choose one of our postpaid plans.</small></p>
-		</div>
-	</div>
-	
-		
-<div class="row">
-	<div class="col-xs-12">
-		<div class="enrollment-tiles">
-			<a href="#/mobile-share" class="enrollment-tile white">
-				<h3>AT&T Mobile Share</h3>
-				<div><img src="images/myATT.png" alt=""></div>
-				<p class="text-muted text-justify">Add this vehicle to your myAT&T Mobile Share account, control the data usage, enable and disable data and add apps.</p>
-			</a>
-		
-		
-			<a href="#/services/pay-as-you-go-plans" class="enrollment-tile white">
-				<h3>AT&T Drive Platform</h3>
-				<div><img src="images/loginLogo.png" alt="" style="padding: .5em;"></div>
-				<p class="text-muted">Pay as you go, session plan.</p>
-			</a>
-		</div>
-	</div>
+<div class="container" id="services-ms-active" ng-show="showPlan=='mobileShare'">
+    <div class="row">
+        <div class="col-xs-8">
+
+            <h2>AT&amp;T Mobile Share</h2>
+
+            <p class="text-justify">
+                This device is sharing AT&amp;T Mobile Share data with other devices in owners account.
+                <br><br>
+                To monitor your data usage or to manage this vehicle data consumption visit att.com/myatt.
+            </p>
+        </div>
+        <div class="col-xs-4">
+            <img src="images/connected-by-att-dark.png" alt="">
+        </div>
+    </div>
 </div>
-		
-	
+<div class="container" ng-show="showPlan=='enrollmentOptions'">
+    <div class="row">
+        <div class="col-xs-12">
+            <p class="lead" style="line-height: 1.2;">Select enrollment option <br><small class="text-muted">You can add this vehicle to your existing AT&ampT Mobile Share account, or choose one of our postpaid plans.</small></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="enrollment-tiles">
+                <a href="#/mobile-share" class="enrollment-tile white">
+                    <h3>AT&T Mobile Share</h3>
+                    <div><img src="images/myATT.png" alt="" style="padding-top: .1em; margin-bottom: .5em;"></div>
+                    <p class="text-muted text-justify">Add this vehicle to your myAT&T Mobile Share account, control the data usage, enable and disable data and add apps.</p>
+                </a>
+
+
+                <a href="#/services/pay-as-you-go-plans" class="enrollment-tile white">
+                    <h3>AT&T Drive Platform</h3>
+                    <div><img src="images/loginLogo.png" alt="" style="padding: .4em;"></div>
+                    <p class="text-muted text-justify">Connect this vehicle with one of our pay-as-you-go plans, and enjoy flexible postpaid options.</p>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>

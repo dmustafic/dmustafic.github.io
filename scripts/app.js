@@ -36,7 +36,7 @@ var config = {
     },
 
     API: {
-        host: 'http://i.maestralsolutions.com:8080'
+        host: 'http://localhost:8080'
     },
 
     trialExpiresLength: 3
@@ -89,6 +89,7 @@ app.config(function($routeProvider) {
         })
         .when('/services', {
             templateUrl: 'plans/views/enrollment-options.html',
+            controller: 'EnrollmentOptionsCtrl',
             settings: {
                 viewName: 'ENROLLMENT OPTIONS',
                 hasAccess: function () {
@@ -208,7 +209,7 @@ app.config(function($routeProvider) {
                     return true;
                 }
             }
-        })
+        })  
         .when('/apps', {
             templateUrl: 'app-store/views/apps.html',
             controller: 'AppsCtrl',
@@ -218,7 +219,7 @@ app.config(function($routeProvider) {
                     return true;
                 }
             }
-        })
+        })     
         .when('/app/:appId/details/:vehicleId', {
             templateUrl: 'app-store/views/app-details.html',
             controller: 'AppDetailsCtrl',
@@ -228,7 +229,7 @@ app.config(function($routeProvider) {
                     return true;
                 }
             }
-        })
+        })     
         .otherwise({
             redirectTo: '/login'
         });
@@ -239,7 +240,7 @@ app.run(function($rootScope, $location, $header, authenticationService, vehicleS
     $rootScope.appName = 'AT&T DRIVE';
     $rootScope.showDrawer = true;
     $header.showBackButton(false);
-
+    
     $rootScope.$on('$routeChangeSuccess',
         function (event, next, current) {
             $rootScope.showDrawer = false;
@@ -273,3 +274,4 @@ app.run(function($rootScope, $location, $header, authenticationService, vehicleS
     }, function () { });
 
 });
+

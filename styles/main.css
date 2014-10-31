@@ -19,10 +19,14 @@ a:active{
     text-decoration: none;
 }
 
-a.white:hover,
+
 a.white:focus,
 a.white:active{
     color: #ccc;
+}
+
+a.white:hover{
+    color: white;
 }
 
 input[type="text"]{
@@ -106,9 +110,9 @@ hr{
     width: 49%;
     
     padding: 15px;
-    background-color: rgba(255,255,255,.2);
-    border-radius: .2em;
-    border: 2px solid transparent;
+    background-color: rgba(255,255,255,.1);
+    
+    border: 1px solid #999;
     text-align: center;
 
 
@@ -118,7 +122,11 @@ hr{
 
 .enrollment-tile:active,
 .enrollment-tile:focus{
-    border-color: #067ab4;
+    border-color: #aaa;
+}
+
+.enrollment-tile:active{
+        background-color: rgba(255,255,255,.05);
 }
 
 .enrollment-tile img{
@@ -164,6 +172,19 @@ hr{
 
 #plans-carousel-container .row{
     padding: 0px 50px;
+}
+
+#services-ms-active .col-xs-4{
+    text-align: center;
+}
+
+#services-ms-active img{
+    width: 80%;
+    margin-top: 4.3em;
+}
+
+#services-ms-active h2{
+    margin-top: 85px;
 }
 
 /* MOBILE SHARE

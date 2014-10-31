@@ -21,7 +21,7 @@ angular.module('driveStudioHU')
               userService.validateUserAccount($scope.accountInfoModel, function (success) {
                   if (success) {
                       $scope.accountInfoError = '';
-                      $scope.plans();                      
+                      $scope.groups();
                   }
                   else $alert.show({
                       type: 'danger',
@@ -46,10 +46,10 @@ angular.module('driveStudioHU')
                           function (packages) {
                               $scope.packages = helper.group(packages, 3);
                               $scope.currentPackageId = $scope.vehicle.activePackage.id;
-                              $scope.step = 2;
+                              $scope.step = 3;
                           },
                           function () { });
-              } else $scope.step = 2;
+              } else $scope.step = 3;
           };
 
           $scope.selectPlan = function (plan) {
@@ -59,7 +59,7 @@ angular.module('driveStudioHU')
 
               $scope.selectedPlan = plan;
               $scope.activePackageId = plan.id;
-              $scope.groups();
+              $scope.step = 4;
           };
 
           $scope.groups = function () {
@@ -68,7 +68,7 @@ angular.module('driveStudioHU')
               mobileShareService.getMobileShareAccount(config.user.id,
               function (account) {
                   if (account) {
-                      $scope.step = 3;
+                      $scope.step = 2;
                       $scope.mobileShareGroups = account.groups;
                       $scope.mobileShareAccount = account;
                   }
@@ -76,7 +76,7 @@ angular.module('driveStudioHU')
                       // create new mobile share account
                       mobileShareService.saveMobileShareAccount(config.user.id, $scope.vehicle.id, $scope.vehicle.activePackage.id, constants.mobileShareDeviceType.vehicle,
                           function (mobileShareAccount) {
-                              $scope.step = 3;
+                              $scope.step = 2;
                               $scope.mobileShareGroups = mobileShareAccount.groups;
                               $scope.mobileShareAccount = mobileShareAccount;
                           },
