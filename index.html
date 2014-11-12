@@ -2,71 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, target-densityDpi=120" />
+    <title>Newsbeat Demo Project</title>
+    <link rel="stylesheet" href="att/styles/att-sdk.css">
+    <link rel="stylesheet" href="att/styles/font-asesome.css">
+	<link rel="stylesheet" href="styles/main.css">
+	<script src="scripts/CryptoJS_v3/components/core-min.js"></script> 
+	<script src="scripts/CryptoJS_v3/components/sha256-min.js"></script> 
+	<script src="scripts/CryptoJS_v3/rollups/hmac-sha256.js"></script> 
+	<script src="scripts/CryptoJS_v3/components/enc-utf16-min.js"></script> 
+	<script src="scripts/CryptoJS_v3/components/enc-base64-min.js"></script> 
 
-    <title>AT&T Drive</title>
-    <link rel="stylesheet" href="att-sdk/styles/att-sdk.css">
-    <link rel="stylesheet" href="att-sdk/styles/font-asesome.css">
-    <link rel="stylesheet" href="styles/main.css">
+	<script src="scripts/angular.js"></script>
+	<script src="scripts/angular-route.js"></script>
+	<script src="att/scripts/connectedCarSDK-tpls-0.0.4.js"></script>
+	
+	
+
+	
 </head>
-<body ng-app="app" ng-controller="LayoutCtrl as vm">
+<body ng-app="app">
     <div id="main-container">
+		
         <div class="screen">
             <div class="content">
-                <att-header app-name="appName" current-item="viewName" ng-show="vm.showAuthenticatedContent"></att-header>
-
-                <div ng-view></div>
-
+                <att-header app-name="appName" current-item="viewName" ></att-header>
+                <div id="view-container" ng-view></div>
+				
             </div>
-
-            <att-drawer ng-show="vm.showAuthenticatedContent">
+            <att-drawer>
                 <att-menu title="title" items="appLinks"></att-menu>
             </att-drawer>
         </div>
     </div>
-    <att-loader></att-loader>
+   
 </body>
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-route.min.js"></script>
-<script src="att-sdk/scripts/connectedCarSDK-tpls-0.0.4.js"></script>
-<script src="scripts/moment.min.js"></script>
-<script src="scripts/underscore-min.js"></script>
+
+
+
 <script src="scripts/app.js"></script>
 
-<!-- Custom JS -->
-<script src="common/extension/localStorage.js"></script>
-<script src="common/extension/array.js"></script>
-<script src="common/extension/string.js"></script>
-<script src="common/constants.js"></script>
-<script src="common/helper.js"></script>
-
 <!--Controllers-->
-<script src="overview/controllers/overviewCtrl.js"></script>
-<script src="authentication/controllers/loginCtrl.js"></script>
-<script src="authentication/controllers/layoutCtrl.js"></script>
-<script src="profile/controllers/profileCtrl.js"></script>
-<script src="billing/controllers/billingCtrl.js"></script>
-<script src="plans/controllers/planCtrl.js"></script>
-<script src="settings/controllers/settingsCtrl.js"></script>
-<script src="app-store/controllers/appsCtrl.js"></script>
-<script src="app-store/controllers/appDetailsCtrl.js"></script>
-<script src="mobile-share/controllers/mobileShareController.js"></script>
-<script src="plans/controllers/enrollmentOptionsCtrl.js"></script>
+<script src="newsbeatPage/service/PlayListService.js"></script>
+<script src="scripts/directives/attMediaPlayer.js"></script>
+<script src="firstPage/controllers/FirstPageCtrl.js"></script>
+<script src="newsbeatPage/controllers/MediaPlayerCtrl.js"></script>
 
-<!--Services-->
-<script src="services/vehicleService.js"></script>
-<script src="services/authenticationService.js"></script>
-<script src="services/userService.js"></script>
-<script src="services/packageService.js"></script>
-<script src="services/mobileShareService.js"></script>
-
-<!--Providers-->
-<script src="providers/error.js"></script>
-
-<!--Filters-->
-<script src="filters/creditCardName.js"></script>
-
-<!--Factories-->
-<script src="common/factory/appsModalHandler.js"></script>
 
 </html>

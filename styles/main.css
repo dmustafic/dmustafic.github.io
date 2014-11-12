@@ -1,732 +1,223 @@
-/**::-webkit-scrollbar {
- display: none;
-}
-*/
-body{
-    margin: 0;
+/* Space out content a bit */
+body {
+  margin: 0;
     padding: 0;
-    width: 768px;
+    padding-top: 1em;
+	
 
 }
 
-a{
-    color: #aacdff;
-}
-a:hover,
-a:focus,
-a:active{
-    color: #bbddff;
-    text-decoration: none;
+#page-wrapper{
+    width: 1366px;
 }
 
 
-a.white:focus,
-a.white:active{
-    color: #ccc;
-}
-
-a.white:hover{
-    color: white;
-}
-
-input[type="text"]{
-    width: 100%;
-    border: none;
-    background-color: rgba(100,100,100, .5);
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: white;
-}
 
 #main-container{
-    width: 100%;
-    height: 100%;    
-    background: #333;
-        
-    background-size: 768px 470px;
-    color: white;
-    z-index: 0;
-}
-
-
-.screen{
-    width: 100%;
-    height: 100%; 
-    background: url('../images/background.png') no-repeat;
-    background-size: 100%;
-    position: absolute;
-    z-index: 0;
+    position: relative;
+    float: left;
+    clear: none;
+    background-image: url(/images/Drive-Demo-App-Background_back.jpg);
+    background-repeat: repeat;
+    padding: 0;
+    height: 470px;
+    width: 768px;
+    max-width: 768px;
+    color: #ffffff;
+    -webkit-box-shadow: 0px 3px 10px 0px rgba(50, 50, 50, 0.49);
+    -moz-box-shadow:    0px 3px 10px 0px rgba(50, 50, 50, 0.49);
+    box-shadow:         0px 3px 10px 0px rgba(50, 50, 50, 0.49);
     overflow: hidden;
 }
-.screen:after {
-    content: "";
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%; 
-      width: 100%;
-      z-index: 1;
-      background-color: rgba(0,0,0,0.85);
+
+#main-container .newsbeat_container{
+	background-image: url(/images/Drive-Demo-App-Background.jpg);
 }
 
-.content{
+#main-container > .ng-scope{
+    height: 470px;
+}
+
+#details-container{
+    margin-top: 2em;
+    margin-bottom: 4em;
+    background-color: #f6f6f6;
     position: relative;
-    z-index: 10;
+    float: left;
+    clear: both;
+
+    padding: 0;
     height: 100%;
-    width: 100%;
+    width: 768px;
+
+
+    color: #333;
+/*
+    -webkit-box-shadow: inset 0px 0px 4px 2px rgba(50, 50, 50, 0.52);
+    -moz-box-shadow:    inset 0px 0px 4px 2px rgba(50, 50, 50, 0.52);
+    box-shadow:         inset 0px 0px 4px 2px rgba(50, 50, 50, 0.52);
+  */
 }
 
-#view-container{
-    height: 410px;
+#details-container .tab-content{
+    color: #333333;
+}
+
+
+#sidebar ul{
+    list-style-type: none;
+}
+
+
+
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 1366px){
+    #sidebar,
+    #options-panel
+    {
+        font-size: 16px;
+    }
+
+}
+
+
+
+#options-panel{
     position: relative;
-}
+    float: left;
+    clear: none;
+    margin-left: 1em;
 
-hr{
-
-    border-top: 1px dashed #999;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-/* OVERVIEW
--------------------------------*/
-.car-details{
-    /*height: 370px; */  
-}
-
-/* SERVICES
--------------------------------*/
-
-.enrollment-tiles{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.enrollment-tile{
-    
-
-    width: 49%;
-    
-    padding: 15px;
-    background-color: rgba(255,255,255,.1);
-    
-    border: 1px solid #999;
-    text-align: center;
-
-
+    width: 240px;
+    background-color: #f9f9f9;
+    padding: 1em;
+/*    -webkit-box-shadow: inset 0px 0px 4px 2px rgba(50, 50, 50, 0.52);
+    -moz-box-shadow:    inset 0px 0px 4px 2px rgba(50, 50, 50, 0.52);
+    box-shadow:         inset 0px 0px 4px 2px rgba(50, 50, 50, 0.52);
+    height: 470px;
+    */
+    overflow: auto;
 
 
 }
 
-.enrollment-tile:active,
-.enrollment-tile:focus{
-    border-color: #aaa;
-}
-
-.enrollment-tile:active{
-        background-color: rgba(255,255,255,.05);
-}
-
-.enrollment-tile img{
-    margin: .7em;
-    height: 2em;
+pre{
+    margin-left: 0;
+    padding-left: 0;
 }
 
 
-.slide-title{
-    text-align: left;
-    
+.padding {
+  padding: 24px;
 }
 
-.slide-title .title{
-    margin-bottom: 60px;   
+/* Pretty printing styles. Used with prettify.js. */
+
+/* SPAN elements with the classes below are added by prettyprint. */
+.pln { color: #000 }  /* plain text */
+
+@media screen {
+  .str { color: #080 }  /* string content */
+  .kwd { color: #008 }  /* a keyword */
+  .com { color: #800 }  /* a comment */
+  .typ { color: #606 }  /* a type name */
+  .lit { color: #066 }  /* a literal value */
+  /* punctuation, lisp open bracket, lisp close bracket */
+  .pun, .opn, .clo { color: #660 }
+  .tag { color: #008 }  /* a markup tag name */
+  .atn { color: #606 }  /* a markup attribute name */
+  .atv { color: #080 }  /* a markup attribute value */
+  .dec, .var { color: #606 }  /* a declaration; a variable name */
+  .fun { color: red }  /* a function name */
 }
 
-.plan-tile h2{
-    margin-top: 0;
-    font-style: oblique;
+/* Use higher contrast and text-weight for printable form. */
+@media print, projection {
+  .str { color: #060 }
+  .kwd { color: #006; font-weight: bold }
+  .com { color: #600; font-style: italic }
+  .typ { color: #404; font-weight: bold }
+  .lit { color: #044 }
+  .pun, .opn, .clo { color: #440 }
+  .tag { color: #006; font-weight: bold }
+  .atn { color: #404 }
+  .atv { color: #060 }
 }
 
-.plan-tile span{/*
-    font-style: italic;
-    color: #ccc;*/
+/* Put a border around prettyprinted code snippets. */
+pre.prettyprint { padding: 2px; border: 0px solid #888 !important; }
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums { margin-top: 0; margin-bottom: 0 !important; } /* IE indents via margin-left */
+li.L0,
+li.L1,
+li.L2,
+li.L3,
+li.L5,
+li.L6,
+li.L7,
+li.L8 { list-style-type: none }
+/* Alternate shading for lines */
+li.L1,
+li.L3,
+li.L5,
+li.L7,
+li.L9 { background: #eee }
+
+.tab-pane h1 {font-size: 20px;}
+.tab-pane h2 {font-size: 18px;}
+.tab-pane p {font-size: 14px;}
+.tab-pane pre {font-size: 14px;}
+.tab-pane ul li {font-size: 14px;}
+
+#sidebar ul {
+    padding-left: 0px; 
+    margin-left: 0;
 }
-
-.plan-tile p{
-    margin-bottom: 20px;
+.tab-pane {
+padding: 10px;
 }
-
-.plan-tile .btn {
-    min-width: 100%;
-}
-
-.plan-tile.selected .btn{
-    background-color: #067ab4;
-}
-
-#plans-carousel-container{
-    height: 300px;
-}
-
-#plans-carousel-container .row{
-    padding: 0px 50px;
-}
-
-#services-ms-active .col-xs-4{
-    text-align: center;
-}
-
-#services-ms-active img{
-    width: 80%;
-    margin-top: 4.3em;
-}
-
-#services-ms-active h2{
-    margin-top: 85px;
-}
-
-/* MOBILE SHARE
--------------------------------*/
-
-.mobile-share-plan-tile{
-    text-align: center;
-    padding: 20px 0px;
-}
-
-.mobile-share-plan-tile .bucket-size{
-    margin-bottom: 0;
-    font-size: 32px;
-    font-family: omnes_attmedium,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-style: oblique;
-    font-weight: 500;
-}
-
-.mobile-share-plan-tile .price-main{
-    font-size: 24px;
-
-}
-
-.mobile-share-plan-tile.selected .btn{
-    background-color: #067ab4;
-
-}
-
-.mobile-share-result-logo img{
-    height: 180px;
-
-}
-
-
-
-.special-offer-image img{
-    height: 200px;
-}
-
-
-
-
-/* PLAN-DETAILS
--------------------------------*/
-
-.plan-details{
-    height: 240px; 
-    margin-bottom: 20px;
-}
-
-.plan-details .carousel-indicators{
-    display: none;
-    
-}
-
-
-.included-services,
-.included-apps,
-.plan-description{
-
-    text-align: left;
-    padding: 0px 50px;
-    
-    
-}
-
-.plan-description{
-    margin-top: 40px;   
-}
-
-.included-services ul,
-.included-apps ul{
-    
-        display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;   
-    
-    height: 180px;
-    list-style:square;
-}
-
-.included-apps ul{
-    list-style: none;
-    padding-left: 20px;
-}
-
-.included-apps ul li{
-    margin-bottom: 5px;   
-}
-
-.included-apps .app-icon{
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-    
-    
-}
-
-.included-apps .app-icon img {
-    width: 30px;
-    height: 30px;
-}
-
-
-/* SUMMARY PAGE
--------------------------------*/
-.summary-table,
-.services-table{
-    width: 100%;   
-}
-
-.summary-table .price,
-.services-table .price{
-    text-align: right;
-    width: 80px;
-}
-
-.services-table .remove{
-    text-align: right;
-}
-
-.services-table .remove a{
-    color: #aaa;
-}
-
-.purchase{
-    display: flex;
-    justify-content: flex-start;
-    align-items: baseline;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    padding: 20px 30px;
-    
-    
-}
-.purchase *{
-    margin-right: 20px;
-}
-
-.purchase .total,
-.purchase .billed-to{
-    margin-left: 20px;   
-}
-
-.purchase .billed-to{
-    color: #aaa;
-}
-
-/* PROFILE
--------------------------------*/
-
-.profile-picture{
+@media (max-width: 1000px) {
+.logo img {
+    height: 32px;
+    width: 180px;
+ }   
+.nav ul li {
     display: inline;
-    width: 50px;
-    border-radius: 100%;
+}
+.nav ul li:after {
+    content: " - ";
+}
+#options-panel {
+    display: none;
+}
 }
 
-/* BILLING
--------------------------------*/
-.billing-details{
-    height: 260px;   
-}
+.footer {
 
-
-/* SETTINGS
--------------------------------*/
-.settings-container{
-    padding: 20px 24px;   
-    height: 340px;
-    overflow-y: auto;
-}
-
-.settings-item{
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0;
-    margin-bottom: 24px;
-    min-height: 64px;
-}
-
-.settings-item .icon{
-    height: 100%;   
-}
-
-.settings-item .icon img{
-    height: 64px;   
-}
-
-.settings-item .description{
-    width: 60%;   
-    padding: 0px 24px 0px 24px;
-}
-
-.settings-item .description h3{
-    margin: 0;   
-}
-
-.settings-item .description p{
-    color: #ccc;\
-    line-height: 1.2;
-}
-
-
-/* APP STORE
--------------------------------*/
-
-.app-store{
-    position: relative;
-    height: 100%;
-}
-
-.app-store .all-apps{
-    height: 320px;
-    
-}
-.app-store .all-apps .app-block{
-    padding: 20px 50px;
-}
-
-.app-store .app-tile{
-    position: relative;
-    float: left;
-    margin: 30px 20px;
-    width: 120px;
-    height: 70px;
-}
-
-.app-store .installed::after{
-    font-family: 'FontAwesome';
-    font-size: 24px;
-    content: "\F058";
-    color: #fff;
-    position: absolute;
-    top: -16px;
-    right: 20px;
-}
-
-.app-store .app-tile .app-icon{
-    height: 64px;
-    width: 64px;
-    margin-right: 10px; 
-}
-
-.app-store .app-tile .app-icon img:hover,
-.app-store .app-tile .app-icon img:focus{
-    border: 1px solid white;
-}
-
-.app-store .app-tile .app-icon img{
-    height: 64px;
-    width: 64px;
-}
-
-.app-store .app-tile .app-name{
-    color: #fff;
-    display: inline-block;
-    overflow: hidden;
-    width: 120px;
-    height: 2.4em;
-    line-height: 2em;
-}
-
-
-.app-details{
-    padding: 30px 0px;
-}
-
-.app-details .main-title{
-    margin: 0;
-}
-
-.app-details img{
-    height: 120px;
-    width: 120px;
-    margin-bottom: 10px;
-}
-
-.app-details .price{
-    font-size: 24px;
-    
-}
-
-.app-details .technical-details{
-    font-size: 16px;
-    color: #bbb;
-    font-style: italic;
-}
-.app-details .left{
-    position: relative;
-    float: left;
-    width: 120px;
-
-}
-.app-details .right{
-    position: relative;
-    float: left;
-    margin-left: 30px;    
-    width: 570px;
-    height: 280px;
-    
-}
-
-.app-details .right a{
-    color: #aaa;
-}
-
-.app-details .right ul{
-    list-style: none;
-    padding: 0;
-}
-
-.app-details .buttons{
-    position: absolute;
-    bottom: 20px;
-    
-
-}
-
-.app-details .buttons *{
-    margin-right: 20px;
-}
-
-
-/* UTILIES
--------------------------------*/
-
-
-.title{
-    line-height: .7;   
-    margin-top: 0;
-}
-
-h2 span{
-    
-    font-size: 18px;
-    color: #ccc;
-    position: relative;
-    margin-top: -200px;
-}
-
-
-.align-bottom{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    line-height: 0;
-}
-
-.b-offset{
-    bottom: 70px; 
-}
-
-.uppercase{
-    text-transform: uppercase;
-}
-
-.gray-text{
-    color: #ccc;   
-}
-
-.v-spacing{
-    margin-top: 10px;   
-    margin-bottom: 10px;
-}
-.v-spacing-double{
-    margin-top: 20px;   
-}
-
-.clamp-text {
-  position: relative;
-  line-height: 1;
-  height: 3em;
-  overflow: hidden;
-  color: #ccc;
-}
-
-.footer{
-    position: absolute;
-    bottom: 24px;
-    height: 80px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    
-    padding: 24px;
-}
-
-.red{
-    color: #e23232;
-}
-
-.white{
-    color: white;
-}
-
-
-
-
-
-/* LOGIN
--------------------------------*/
-
-.login-page{
-    padding: 20px;
-}
-
-.login-page .title h1{
-    margin: 0;   
-}
-.login-page .title p{
-    padding-left: 2px;
-    color: #bbb;
-}
-
-.login-page .input-panel{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 300px;
-}
-
-.login-page .input-panel .panel-row{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-content: center;
-    align-items: center;
-    align-self: center;
-}
-
-.login-page .input-panel .panel-row *{
-    width: 200px;   
-}
-
-.login-page .input-panel .panel-row input{
-    background: transparent;   
-    color: white;
-    height: 60px;
-    font-size: 36px;
-    border: none;
-}
-
-
-
-/* OVERRIDES
--------------------------------*/
-
-.container{
-    width: 100%;
-    
-}
-
-.tab-content{
-    height: 100%;
-    width: 100%;
-}
-
-.att-header{
-    height: 60px;
-    padding: 24px;
-}
-
-.carousel-content{
-    display: block;
-    
-}
-
-.att-carousel {
-    position: relative;
-    height: 100%;
-}
-
-.left .carousel-control{
-    width: 30px;
-}
-
-.att-toggle-switch{
-    display: block;
-}
-
-.att-slide{
-    text-align: left;
-    padding: 0px 40px;
-}
-
-
-
-
-.main-title {
-    font-size: 36px;
-    margin: 0;
-    margin-top: 10px;
-    line-height: 1;
-}
-
-.main-subtitle {
-    font-size: 18px;
-    color: #ccc;
-    margin: 0;
-}
-
-.att-pin-pad{
-    background-color: rgba(0,0,0,.9);
-}
-
-a.btn{
-    line-height: 2.25;
-}
-
-a.btn:hover{
-    color: white;
-}
-
-.summary-table .table{
-    margin-bottom: 15px;
-}
-
-.summary-table .table>tbody>tr>td{
-    border: none;
-    max-height: 128px;
-    width: 140px;
-    background-color: rgba(100,100,100,.5);
-    text-align: center;
-
-}
-
-.summary-table .table>thead>tr>th{
-    border-bottom: none;
-    background-color: rgba(100,100,100,.5);
+    font-size: 14px;
     text-align: center;
 }
 
-.green{
-    color: #4ca90c; 
+.col-xs-12{
+	height:250px;
 }
-
-

@@ -1,0 +1,42 @@
+﻿<div class="padding" style="padding-top: 20px" ng-show="audio">
+    <div class="row">
+        <div class="col-xs-12">
+			<div style="float:left;width:200px;height:300px;text-align:center;vertical-align:middle;" ng-if="currentNews.img">
+				
+					<img src='{{currentNews.img}}' style="width:180px;vertical-align:middle;margin-top:30px;"/>
+				
+			</div>
+			<div style="left:100px;width:auto;">
+		    <span style="color:#067ab4;font-size:40px;">{{currentNews.category}}</span><br />
+		    <span style="color:#FFF; font-size:40px;word-wrap: break-word;word-break:break-word;">{{currentNews.title}}</span> <br />
+		    <span style="color:#FFF; font-size:20px;">{{currentNews.publisher}}&nbsp; &nbsp;<span style="color:#067ab4;font-size:20px;">{{currentNews.time}}</span></span> <br/>
+       	 	</div>
+	</div>
+    </div>
+    <div class="btn-group-media sep-t-40">
+        <a ng-mousedown="changePosition(true, false)" ng-mouseup="changePosition(true, true)" class="btn btn-circ small"><span class="icon-skip-left"></span></a>
+        <a ng-click="changeStatus()" class="btn btn-circ large sep-lr-40"><span ng-class="{'icon-pause' : (!audio.paused), 'icon-play' : audio.paused}"></span></a>
+        <a ng-mousedown="changePosition(false, false)" ng-mouseup="changePosition(false, true)" class="btn btn-circ small"><span class="icon-skip-right"></span></a>
+    </div>
+    
+    <!-- <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 0 24px 36px;">
+        <a class="btn btn-icon sep-r-40"><span class="icon-shuffle" ng-click="shuffle()"></span></a>
+        <a class="btn btn-icon"><span class="icon-repeat" ng-click="repeat()"></span></a>
+        <a class="btn btn-icon volume-icon pull-right" ng-class="{'active': showVolume}" ng-click="volume()"><span class="icon-volume-down"></span></a>
+        <div class="sep-top-10">
+            <att-slider type="default"
+                min="{{sliderConfig.min}}"
+                max="{{sliderConfig.max}}"
+                ng-model="sliderConfig.val"
+                text-left="{{sliderConfig.elapsedTime | filter: countdown(true)}}"
+                text-right="{{sliderConfig.remainingTime | filter: countdown(false)}}"
+                parent-control="time">
+            </att-slider>
+        </div>
+    </div> -->
+
+    <div style="display: none" ng-repeat="song in playlist" ng-class="{'active-song' : currentIndex == $index}" ng-click="setFile($index)">
+        <span ng-bind="song"></span>
+    </div>
+
+</div>
